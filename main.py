@@ -5,8 +5,11 @@ def add_guest(dinner_list, person):
     return dinner_list
 # Function to remove people from the list
 def remove_guest(dinner_list, person):
-    dinner_list.remove(person)
-    return dinner_list
+    try:
+        dinner_list.remove(person)
+        return True
+    except ValueError:
+        return False
 # Greet user
 print("Welcome to the dinner invitation generator.")
 # Ask for amount of people
@@ -27,14 +30,14 @@ while True:
     action = input("Would you like to [a]dd, [r]emove, or [e]nd the generator? ")
     # Create input for adding people
     if action == "a":
-        person = input("Who would you like to add? ")
+        person = input("Who would you like to add? ").strip().title()
         add_guest(names, person)
         print(f"{person} has been added to the list.")
         for name in names:
             print(f"Hello, {name}. You are invited to dinner at Slumpy Joes please let me know if you can arrive.")
     # Create input for removing people
     elif action == "r":
-        person = input("Who would you like to remove? ")
+        person = input("Who would you like to remove? ").strip().title()
         remove_guest(names, person)
         print(f"{person} has been removed from the list.")
         for name in names:
