@@ -9,6 +9,7 @@ def remove_guest(dinner_list, person):
         dinner_list.remove(person)
         return True
     except ValueError:
+        (print(f"{person} is not on the list. Please remove someone on the list.")) 
         return False
 # Greet user
 print("Welcome to the dinner invitation generator.")
@@ -38,13 +39,13 @@ while True:
     # Create input for removing people
     elif action == "r":
         person = input("Who would you like to remove? ").strip().title()
-        remove_guest(names, person)
-        print(f"{person} has been removed from the list.")
+        if remove_guest(names, person):
+            print(f"{person} has been removed from the list.")
         for name in names:
             print(f"Hello, {name}. You are invited to dinner at Slumpy Joes please let me know if you can arrive.")
     # Greet user goodbye
     elif action == "e":
-        print("Goodbye.")
+        print("You may copy and paste the list of names above,")
         break
     else:
         print("Invalid input. Please try again.")
