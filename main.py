@@ -15,7 +15,7 @@ amount = int(input("How many people are you inviting to dinner? "))
 names = []
 # Make invitation and loop for the amount of people
 for i in range(amount):
-    name = input("Enter the name of the person you are inviting: ")
+    name = input("Enter the name of the person you are inviting: ").strip().title()
     names.append(name)
 
 
